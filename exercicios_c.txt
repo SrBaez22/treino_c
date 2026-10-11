@@ -114,7 +114,7 @@ int main()
     printf("o valor da soma é: %d",somar(vetor, tamanho));
 
     return 0;
-
+}
 ############################################################################
 
 #include <stdio.h>
