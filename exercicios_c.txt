@@ -1,0 +1,167 @@
+#include <stdio.h>
+
+int main()
+{
+int numero = 10;
+int *point;
+
+point = &numero;
+printf("%d\n", numero);
+printf("%p\n", point);
+printf("%d\n", *point);
+*point = 50;
+printf("%d\n", numero);
+}
+
+
+#################################################
+
+
+#include <stdio.h>
+
+
+
+void dobrar(int *numero){
+*numero = *numero * 2;
+    
+}
+
+int main(void){
+
+int valor = 15;
+
+dobrar(&valor);
+
+printf("%d", valor);
+
+return 0;
+}
+###############################################
+#include <stdio.h>
+
+
+void maior_menor(int a, int b, int *maior, int *menor){
+    if(a>b){
+        *maior = a;
+        *menor = b;
+    }
+    else if(a<b){
+        *maior = b;
+        *menor = a;
+    }
+    
+}
+
+
+int main(void){
+    int numero_1;
+    int numero_2;
+    int resultado_maior, resultado_menor;
+printf("digite dois numeros: \n");
+scanf("%d %d", &numero_1, &numero_2);
+
+maior_menor(numero_1, numero_2, &resultado_maior, &resultado_menor);
+printf("maior: %d\n",resultado_maior);
+printf("menor: %d\n",resultado_menor);
+}
+#########################################################################
+#include <stdio.h>
+
+
+void calcular(int a, int b, int *soma, int *sub, int *mult){
+    *soma = a + b;
+    *sub = a-b;
+    *mult = a*b;
+}
+
+
+
+int main(void)
+{
+    int a, b;
+    int soma, sub, mult;
+    printf("digite dois numeros: ");
+    scanf("%d %d", &a, &b);
+    
+    calcular(a,b, &soma, &sub, &mult);
+    printf("\nsoma: %d\n",soma);
+    printf("subtracao: %d\n",sub);
+    printf("multiplicacao: %d\n",mult);
+
+    return 0;
+}
+
+
+
+############################################################################
+
+#include <stdio.h>
+
+int somar(int *vetor, int tamanho){
+    int soma = 0;
+    for(int i = 0; i<tamanho; i++){
+        soma += *(vetor+i);
+    }
+    return soma;
+}
+
+
+int main()
+{
+    int vetor[6] = {10,20,30,40,50,10};
+    int tamanho = sizeof(vetor) / sizeof(vetor[0]);
+    
+    printf("o valor da soma é: %d",somar(vetor, tamanho));
+
+    return 0;
+
+############################################################################
+
+#include <stdio.h>
+
+
+int maior_elemento(int *vetor, int tamanho){
+    int maior = *vetor;
+    for(int i=0; i<tamanho; i++){
+        if(*(vetor+i)>maior){
+            maior = *(vetor+i);
+        }
+    }
+    return maior;
+}
+
+int main()
+{
+    int vetor[5]={5,20,3,4,48};
+    int tamanho = sizeof(vetor)/sizeof(vetor[0]);
+    
+    printf("o maior elemento e: %d", maior_elemento(vetor, tamanho));
+
+    return 0;
+}
+
+###########################################################################
+
+#include <stdio.h>
+
+
+
+int tamanho_string(char *string){
+    int contador = 0;
+    while(*string!='\0'){
+        contador ++;
+        string++;
+    }
+    return contador;
+}
+
+int main()
+{
+    char palavra[100];
+    
+    printf("Digite a palavra que voce quer contar caracteres: \n");
+    scanf("%99s", &palavra);
+    
+    printf("A palavra tem: %d letras.\n", tamanho_string(palavra));
+    return 0;
+}
